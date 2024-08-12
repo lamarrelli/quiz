@@ -16,11 +16,46 @@ const images = [
       question: "Quale organo?",
       correctAnswer: "Milza"
     },
+    {
+      url: "https://www.atlanteistologia.unito.it/photos/Paratiroide.jpg",
+      question: "Cosa rappresenta?",
+      correctAnswer: "Paratiroide"
+    },
+        {
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Pineal_gland_-_intermed_mag.jpg/180px-Pineal_gland_-_intermed_mag.jpg",
+      question: "Cosa rappresenta?",
+      correctAnswer: "Ghiandola pineale"
+    },
+        {
+          url: "https://www.medicinapertutti.it/wp-content/uploads/anatomia_normale/anatomia_microscopica/img_anatomia_microscopica/neuroipofisi.jpg",
+      question: "Cosa rappresenta?",
+      correctAnswer: "Neuroipofisi"
+    },
+      {
+          url: "https://www.medicinapertutti.it/wp-content/uploads/anatomia_normale/anatomia_microscopica/img_anatomia_microscopica/cellule_di_adenoipofisi.jpg",
+      question: "Cosa rappresenta?",
+      correctAnswer: "Adenoipofisi (Pars Distalis)"
+    },
 
     {
       url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Small_intestine_low_mag.jpg/260px-Small_intestine_low_mag.jpg",
       question: "Cos'è?",
       correctAnswer: "Villo intestinale"
+    },
+    {
+      url: "https://www.shutterstock.com/shutterstock/photos/2063646656/display_1500/stock-photo-intermediate-lobe-or-pars-intermedia-of-a-human-pituitary-located-between-the-anterior-lobe-left-2063646656.jpg",
+      question: "Cos'è?",
+      correctAnswer: "Pars intermedia"
+    },
+    {
+      url: "https://thumbs.dreamstime.com/b/ghiandola-sottomandibolare-umana-93291862.jpg",
+      question: "Cos'è?",
+      correctAnswer: "Ghiandola sottomandibolare"
+    },
+    {
+      url: "https://www.atlanteistologia.unito.it/photos/surrene2.gif",
+      question: "Cos'è?",
+      correctAnswer: "Ghiandola surrenale"
     },
     {
       url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Cervical_intraepithelial_neoplasia_%281%29_normal_squamous_epithelium.jpg/640px-Cervical_intraepithelial_neoplasia_%281%29_normal_squamous_epithelium.jpg",
