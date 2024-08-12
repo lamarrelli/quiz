@@ -32,6 +32,63 @@ const images = [
       question: "Che tessuto è? Elenca i metodi istologici di preparazione del vetrino",
       correctAnswer: "Tessuto osseo"
     },
+        {
+      url: "https://www.atlanteistologia.unito.it/photos/Sebacea%2020x.jpg",
+      question: "Che cos'è?",
+      correctAnswer: "Ghiandola sebacea"
+    },
+    {
+      url: "https://www.microbiologiaitalia.it/wp-content/uploads/2020/05/mid_osseo-Isto.jpg",
+      question: "Che cos'è?",
+      correctAnswer: "Midollo osseo"
+    },
+    {
+      url: "https://www.atlanteistologia.unito.it/photos/Spugnoso_midollo.jpg",
+      question: "Quale tessuto?",
+      correctAnswer: "Osso spugnoso"
+    },
+
+    {
+      url: "https://www.biopills.net/wp-content/uploads/2019/06/questa-e1560072666900.jpg",
+      question: "Distingui le cellule del sangue",
+      correctAnswer: "eritrociti e monocita"
+    },
+
+    {
+      url: "https://www.atlanteistologia.unito.it/photos/Atreriola2_elast.jpg",
+      question: "Che cos'è rappresentato?",
+      correctAnswer: "Un'arteria"
+    },
+
+    {
+      url: "https://www.medicinapertutti.it/wp-content/uploads/istologia/tessuto_muscolare/img_tess_musc/tessuto_muscolare_striato_scheletrico_longitudinale.jpg",
+      question: "Che tessuto rappresenta?",
+      correctAnswer: "Tessuto muscolare striato"
+    },
+
+    {
+      url: "https://superagatoide.altervista.org/alterpages/medium/cardiaco2.jpg",
+      question: "Che tessuto rappresenta?",
+      correctAnswer: "Tessuto muscolare cardiaco"
+    },
+
+    {
+      url: "https://www.medicinapertutti.it/wp-content/uploads/istologia/tessuto_muscolare/img_tess_musc/tessuto_muscolare_liscio_in_sezione_longitudinale.jpg",
+      question: "Che tessuto rappresenta?",
+      correctAnswer: "Tessuto muscolare liscio"
+    },
+
+    {
+      url: "https://upload.wikimedia.org/wikipedia/commons/b/b4/Normal_Epidermis_and_Dermis_with_Intradermal_Nevus_10x.JPG",
+      question: "Come si chiama lo strato superiore?",
+      correctAnswer: "Strato corneo"
+    },
+
+    {
+      url: "https://superagatoide.altervista.org/alterpages/foto-ghiand-tub-semplw.jpg",
+      question: "Che cosa sono?",
+      correctAnswer: "Ghiandole tubulo acinose"
+    },
     {
       url: "https://istologia.unige.it/sites/istologia.unige.it/files/styles/unige_stretto/public/2022-04/Figura%20S17.jpg?itok=0ZAEDVSx",
       question: "Che tipo di cellula è? Che colorazione è stata applicata?",
