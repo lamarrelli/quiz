@@ -1,37 +1,42 @@
 import React, { useState } from 'react';
 import images from './data/images';
-import * as XLSX from 'xlsx';
 import './App1.css';
 
 function App() {
-  const [mode, setMode] = useState('menu'); // 'menu', 'quiz', 'gallery', or 'questions'
-  const [questions, setQuestions] = useState([]);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [mode, setMode] = useState('menu'); // 'menu', 'quiz', or 'gallery'
+  const [currentImage, setCurrentImage] = useState(getRandomImage());
+  const [userAnswer, setUserAnswer] = useState('');
+  const [feedback, setFeedback] = useState('');
+  const [isImageEnlarged, setIsImageEnlarged] = useState(false);
 
-  const handleFileUpload = (e) => {
-    const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onload = (evt) => {
-      const data = new Uint8Array(evt.target.result);
-      const workbook = XLSX.read(data, { type: 'array' });
-      const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-      const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
-      const loadedQuestions = jsonData.map(row => row[0]); // Prima colonna
-      setQuestions(loadedQuestions);
-      setMode('questions');
-    };
-    reader.readAsArrayBuffer(file);
+  function getRandomImage() {
+    return images[Math.floor(Math.random() * images.length)];
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (userAnswer.trim().toLowerCase() === currentImage.correctAnswer.toLowerCase()) {
+      setFeedback('Giusto! Ben fatto.');
+    } else {
+      setFeedback(`Sbagliato, la risposta giusta era: ${currentImage.correctAnswer}`);
+    }
   };
 
-  const handleNextQuestion = () => {
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-    }
+  const handleNext = () => {
+    setCurrentImage(getRandomImage());
+    setUserAnswer('');
+    setFeedback('');
+  };
+
+  const toggleImageSize = () => {
+    setIsImageEnlarged(!isImageEnlarged);
   };
 
   const goBackToMenu = () => {
     setMode('menu');
-    setCurrentQuestion(0);
+    setUserAnswer('');
+    setFeedback('');
+    setIsImageEnlarged(false);
   };
 
   return (
@@ -42,25 +47,7 @@ function App() {
           <div className="menu-buttons">
             <button onClick={() => setMode('quiz')} className="menu-button">Inizia Quiz</button>
             <button onClick={() => setMode('gallery')} className="menu-button">Guarda la galleria</button>
-            <button onClick={() => setMode('upload')} className="menu-button">Domande</button>
           </div>
-        </div>
-      )}
-
-      {mode === 'upload' && (
-        <div className="card">
-          <h1 className="title">Carica un file Excel</h1>
-          <input type="file" accept=".xlsx, .xls" onChange={handleFileUpload} />
-          <button onClick={goBackToMenu} className="menu-button">Torna al Menù</button>
-        </div>
-      )}
-
-      {mode === 'questions' && (
-        <div className="card">
-          <h1 className="title">Domanda</h1>
-          <p>{questions[currentQuestion]}</p>
-          <button onClick={handleNextQuestion} className="submit-button">Prossima Domanda</button>
-          <button onClick={goBackToMenu} className="menu-button-end">Torna al Menù</button>
         </div>
       )}
 
@@ -71,15 +58,35 @@ function App() {
             <h1 className="banner-title">Istologia Quiz</h1>
           </header>
           <img
-            className="quiz-image"
-            src={images[0].url}
+            className={`quiz-image ${isImageEnlarged ? 'enlarged' : ''}`}
+            src={currentImage.url}
             alt="quiz"
+            onClick={toggleImageSize}
           />
-          <p className="question">Esempio di domanda dal quiz delle immagini</p>
-          <form>
-            <input className="input" type="text" placeholder="La tua risposta" />
+          <p className="question">{currentImage.question}</p>
+          <form onSubmit={handleSubmit}>
+            <input
+              className="input"
+              type="text"
+              value={userAnswer}
+              onChange={(e) => setUserAnswer(e.target.value)}
+              placeholder="La tua risposta"
+            />
             <button className="submit-button" type="submit">Cliccami</button>
           </form>
+          {feedback && (
+            <>
+              <p className={`feedback ${feedback.startsWith('Correct') ? 'correct' : 'incorrect'}`}>
+                {feedback}
+              </p>
+              <button
+                className="next-button"
+                onClick={handleNext}
+              >
+                Prossima immagine
+              </button>
+            </>
+          )}
         </div>
       )}
 
@@ -95,6 +102,7 @@ function App() {
                   className="gallery-image"
                   src={image.url}
                   alt={`gallery-${index}`}
+                  onClick={toggleImageSize}
                 />
                 <p className="gallery-answer">{image.correctAnswer}</p>
               </div>
