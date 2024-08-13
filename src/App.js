@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import images from './data/images';
-import * as XLSX from 'quiz/src/xlsx';
+import * as XLSX from 'xlsx';
 import './App1.css';
 
 function App() {
