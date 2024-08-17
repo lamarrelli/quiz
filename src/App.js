@@ -93,6 +93,7 @@ function App() {
       {mode === 'gallery' && (
         <div className="card">
           <header className="banner">
+            <button onClick={goBackToMenu} className="home-button">Home</button>
             <h1 className="banner-title">Galleria dei vetrini</h1>
           </header>
           <div className="gallery">
@@ -108,7 +109,6 @@ function App() {
               </div>
             ))}
           </div>
-          <button onClick={goBackToMenu} className="menu-button-end">Menù</button>
         </div>
       )}
     </div>
@@ -116,7 +116,5 @@ function App() {
 }
 
 export default App;
-
-
 
 
